@@ -11,6 +11,7 @@
 #include "host/ble_hs.h"
 #include "host/util/util.h"
 
+#include "ax_console.h"
 #include "ax_control.h"
 #include "ax_log.h"
 
@@ -74,6 +75,13 @@ void app_main(void)
     if (rc != 0)
     {
         AX_LOG_ERROR(TAG, "ax_control_init failed: %d", rc);
+        return;
+    }
+
+    rc = ax_console_start();
+    if (rc != 0)
+    {
+        AX_LOG_ERROR(TAG, "ax_console_start failed: %d", rc);
         return;
     }
 
