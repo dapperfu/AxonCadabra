@@ -4,7 +4,6 @@
 #include "nvs_flash.h"
 
 #include "esp_err.h"
-#include "esp_nimble_hci.h"
 
 #include "nimble/nimble_port.h"
 #include "nimble/nimble_port_freertos.h"
@@ -59,13 +58,6 @@ void app_main(void)
     if (err != ESP_OK)
     {
         AX_LOG_ERROR(TAG, "nvs_flash_init failed: %d", (int)err);
-        return;
-    }
-
-    err = esp_nimble_hci_and_controller_init();
-    if (err != ESP_OK)
-    {
-        AX_LOG_ERROR(TAG, "esp_nimble_hci_and_controller_init failed: %d", (int)err);
         return;
     }
 
