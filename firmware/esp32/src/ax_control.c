@@ -1,5 +1,6 @@
 #include "ax_control.h"
 
+#include <stdio.h>
 #include <string.h>
 
 #include "nimble/nimble_npl.h"
@@ -39,6 +40,23 @@ static struct ble_npl_event g_apply_event;
 static struct ble_npl_callout g_fuzz_callout;
 
 static int ax_gap_event(struct ble_gap_event *event, void *arg);
+
+#define AX_ADDR_STR_LEN 18
+
+static void ax_addr_to_str(const uint8_t addr[6], char out[AX_ADDR_STR_LEN])
+{
+    (void)snprintf(
+        out,
+        AX_ADDR_STR_LEN,
+        "%02X:%02X:%02X:%02X:%02X:%02X",
+        addr[5],
+        addr[4],
+        addr[3],
+        addr[2],
+        addr[1],
+        addr[0]
+    );
+}
 
 static void ax_payload_apply_fuzz(void)
 {
@@ -248,8 +266,8 @@ static int ax_gap_event(struct ble_gap_event *event, void *arg)
 
         case BLE_GAP_EVENT_DISC:
         {
-            char addr_str[BLE_ADDR_STR_LEN];
-            (void)ble_addr_to_str(&event->disc.addr, addr_str);
+            char addr_str[AX_ADDR_STR_LEN];
+            ax_addr_to_str(event->disc.addr.val, addr_str);
 
             if (strncmp(addr_str, AXON_OUI_STR, 8) == 0)
             {
