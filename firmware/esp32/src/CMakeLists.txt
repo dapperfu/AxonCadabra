@@ -3,6 +3,7 @@ idf_component_register(
         "main.c"
         "ax_log.c"
         "ax_control.c"
+        "ax_console.c"
     INCLUDE_DIRS
         "."
 )
