@@ -21,7 +21,7 @@ static void ax_console_print_help(void)
     AX_LOG_INFO(TAG, "commands:");
     AX_LOG_INFO(TAG, "  status");
     AX_LOG_INFO(TAG, "  scan on|off");
-    AX_LOG_INFO(TAG, "  tx on|off");
+    AX_LOG_INFO(TAG, "  tx on|off   (alias: adv on|off)");
     AX_LOG_INFO(TAG, "  fuzz on|off");
     AX_LOG_INFO(TAG, "  fuzz interval <ms>");
     AX_LOG_INFO(TAG, "  log <0-5>  (0=info, 1=v, 2=vv, 3=vvv, 4=vvvv, 5+=debug)");
@@ -155,7 +155,7 @@ static void ax_console_task(void *param)
             continue;
         }
 
-        if (strcmp(cmd, "tx") == 0)
+        if (strcmp(cmd, "tx") == 0 || strcmp(cmd, "adv") == 0)
         {
             const char *arg = strtok_r(NULL, " \t", &saveptr);
             bool enabled;

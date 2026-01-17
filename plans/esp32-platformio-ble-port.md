@@ -44,9 +44,9 @@ The ESP32 shall advertise a **Service Data (AD type 0x16)** structure:
 
 ### Implementation TODOs
 - [x] Save this plan in `plans/` at repo root.
-- [ ] Add repo-root `.clang-format` and `Makefile` wrappers (Android + ESP32).
-- [ ] Create `firmware/esp32/` PlatformIO ESP-IDF project skeleton.
-- [ ] Implement NimBLE advertiser: service-data UUID16 `0xFE6C` + payload, start/stop, handle connect events.
-- [ ] Implement NimBLE scanner: OUI filter `00:25:DF`, log RSSI and address.
-- [ ] Implement fuzz loop: 500ms stop/mutate/restart with the exact Android mutation.
-- [ ] Implement UART commands: `scan`, `tx`, `fuzz`, `log`, `status`.
+- [x] Add repo-root `.clang-format` and `Makefile` wrappers (Android + ESP32).
+- [x] Create `firmware/esp32/` PlatformIO ESP-IDF project skeleton.
+- [x] Implement NimBLE advertiser: service-data UUID16 `0xFE6C` + payload, start/stop, handle connect events.
+- [x] Implement NimBLE scanner: OUI filter `00:25:DF`, log RSSI and address.
+- [x] Implement fuzz loop: 500ms stop/mutate/restart with the exact Android mutation.
+- [x] Implement UART commands: `scan`, `tx`, `fuzz`, `log`, `status`.
