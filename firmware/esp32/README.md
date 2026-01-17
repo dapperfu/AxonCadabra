@@ -11,6 +11,8 @@
 pio run -d firmware/esp32
 ```
 
+If you see a **flash size mismatch** warning, run `make esp32-clean` once to delete the generated `sdkconfig.*` and regenerate it from `sdkconfig.defaults`.
+
 ### Flash (optional)
 
 ```bash
