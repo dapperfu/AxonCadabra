@@ -23,6 +23,8 @@ pio run -d firmware/esp32 -t upload
 pio device monitor -d firmware/esp32
 ```
 
+If your board uses a **CH343P** USB-to-serial bridge, the port may appear as `/dev/ttyUSB*` (Linux) or similar.
+
 Commands:
 - `status`
 - `scan on|off`
