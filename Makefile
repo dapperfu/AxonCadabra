@@ -37,7 +37,7 @@ android-build:
 	./gradlew assembleDebug
 
 esp32-clean:
-	rm -f $(PIO_DIR)/sdkconfig.*
+	find $(PIO_DIR) -maxdepth 1 -type f -name 'sdkconfig.*' ! -name 'sdkconfig.defaults' -delete
 	pio run -d $(PIO_DIR) -t clean
 
 esp32-build:
