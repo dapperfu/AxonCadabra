@@ -9,7 +9,7 @@
 #include "freertos/task.h"
 
 #include "driver/uart.h"
-#include "esp_vfs_dev.h"
+#include "driver/uart_vfs.h"
 
 #include "ax_control.h"
 #include "ax_log.h"
@@ -225,7 +225,7 @@ int ax_console_start(void)
         return -1;
     }
 
-    esp_vfs_dev_uart_use_driver(UART_NUM_0);
+    uart_vfs_dev_use_driver(UART_NUM_0);
 
     if (xTaskCreate(ax_console_task, "ax_console", 4096, NULL, 5, NULL) != pdPASS)
     {
