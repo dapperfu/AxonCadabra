@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+
+# Gradle / Android
+.gradle/
+build/
+app/build/
+
+# PlatformIO
+.pio/
+firmware/**/.pio/
+
+# ESP-IDF / CMake (if used outside PlatformIO)
+sdkconfig
+sdkconfig.old
+cmake-build-*/
